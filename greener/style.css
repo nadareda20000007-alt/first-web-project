@@ -1,0 +1,263 @@
+/* Import Google Fonts */ 
+/* Miniver  Roboto  Poppins  Nunito  Comfortaa */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Miniver&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    font-family: "Nunito", Comfortaa, Poppins, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box  
+}
+ 
+:root{
+   /* Colors */
+   --white: #fff;
+   --secondary: #10B981;
+   --words: #2E8B57;
+   --primary: #1D4A3B;
+   --light-pnk: #faf4f5;
+   --med-gray: #ccc;
+
+   /* Font Sizes */
+   --s: 0.9rem;
+   --n: 144rem;
+    --m: 1.12rem;
+    --l: 1.5rem;
+    --xl: 2rem;
+    --xxl: 2.3rem;
+
+    /* Font Weights */
+    --fw-normal: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+
+    /*border radius*/
+    --br-s:8px;
+    --br-m:30px;
+    --br-r-circule: 50%;
+
+    /* site max width */
+    --site-max-width: 1300px;    
+}
+ 
+html {
+  scroll-behavior: smooth;
+}
+
+/*styling for whole site*/
+ul{
+    list-style: none;
+}
+a{  
+    text-decoration: none;
+}
+
+button{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+img{
+    max-width: 100%;
+}
+
+:where(section, footer) .section-content {
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: var(--site-max-width);
+}
+
+
+
+
+
+/*navbar styling*/
+header{
+    position: fixed;
+    width: 100% ;
+    z-index: 5;
+    background: var(--primary);
+}
+
+header .navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: var(--site-max-width);
+}
+
+.navbar .nav-menu{
+    display: flex;
+    gap: 10px;
+}
+
+.navbar .nav-menu .nav-link{
+    padding: 10px 18px;
+    color: var(--white);
+    font-size: var(--m);
+    border-radius: var(--br-m);
+    transition: 0.3s ease;
+}
+
+.navbar .nav-menu .nav-link:hover{
+    color: var(--primary);
+    background: var(--secondary);
+}
+
+.navbar :where(#menu-close-button, #menu-open-button){
+    display: none;
+}
+
+
+
+
+
+
+/*logo styling*/
+.navbar .nav-logo{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.logo-image{
+    height: 40px;
+    width: 60px; /* give it an explicit width based on your logo's ratio (606/412 ≈ 1.47, so 40px height × 1.47 ≈ 59px width) */
+    flex-shrink: 0;
+    border-radius: 0;
+    overflow: visible;
+}
+
+.logo-image img{
+    width: 100%;
+    height: 100%;
+}
+
+.navbar .nav-logo .logo-text{
+    color: var(--white);
+    font-size: var(--xl);
+    font-weight: var(--fw-bold);
+    white-space: nowrap; /* keeps "Greener" from wrapping to a new line */
+}
+
+
+
+
+section .section-title {
+    text-align: center;
+    padding: 60px 0 100px;
+    text-transform: uppercase;
+    font-size:var(--xl)
+}
+
+section  .section-title::after {
+    content: "";
+    width: 80px;
+    height: 5px;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: var(--br-s) ;
+    background: var(--secondary);
+}
+
+
+
+
+
+
+
+
+
+
+/* hero section styling */
+.hero-section {
+    min-height: 100vh;
+    background: var(--primary);
+    overflow: hidden;
+}
+
+.hero-section .section-content {
+    display: block;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: space-between;
+    padding-top: 100px;
+}
+
+.hero-section .hero-details {
+  color: var(--dark);
+}
+
+.title{
+   color: var(--white);
+    font-size: var(--xxl);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+.hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateX(-150%); /* starts off-screen left */
+}
+
+/* JS adds this class once the wrapper scrolls into view */
+.hero-image-wrapper.animate-in {
+transition: transform 3s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;    opacity: 1;
+    transform: translateX(0);
+}
+
+.hero-image {
+    width: 100%;
+    display: block;
+    border-radius: var(--br-m);
+}
+
+.hero-subtitle{
+   position: absolute;
+    top: 15px;
+    left: 15px;
+    background: transparent;
+    color: var(--words);
+    padding: 6px 14px;
+    border-radius: var(--br-s);
+    font-size: var(--s);
+    font-weight: var(--fw-semibold);
+    z-index: 2;
+}
+
+
+.hero-button-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: flex-end; /* pushes button to bottom-right of the image column */
+}
+
+
+
+.hero-button-wrapper .button.about-greener {
+    padding: 10px 26px;
+    background: var(--secondary);
+    color: var(--primary);
+    border-radius: var(--br-m);
+    border: 2px solid transparent;
+    font-weight: var(--fw-medium);
+    transition:  0.3s ease;
+    font-size: var(--m);
+}   
+
+.hero-button-wrapper .button.about-greener:hover  {
+    border-color: var(--secondary);
+    background: transparent;
+    color: var(--words);
+}
+
